@@ -72,5 +72,29 @@
 		 
 		$objWriter->save('php://output');
     }
+   //如果有数据库操作，那就是导入之后再添加到数据库
+   /*insert data to databse*/	
+  	function into_database($filename){
+				header("content-type:text/html;charset=utf8");
+				set_time_limit(0);
+				include 'excel/PHPExcel.class.php';
+	
+				$objPHPExcel    = \PHPExcel_IOFactory::load($filename);
+				$objWorksheet   = $objPHPExcel->getActiveSheet();
+				$objActSheetArr = $objWorksheet->toArray('',false,true,false);
+	
+				//dump($objActSheetArr);exit;
+				
+	
+				for($i = 1; $i < count($objActSheetArr); $i++ ){
+	
+				$data['keyword'] = $objActSheetArr[$i][0];//关键词
+				$data['price']   = $objActSheetArr[$i][1];//均价
+				$data['type']    = $objActSheetArr[$i][2];//渠道
+				$data['ctime']   = time();//时间
+				/*insert into table_name value $data*/
+				}	
+	}					
+		
 
 ?>
