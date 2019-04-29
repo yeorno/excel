@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>测试excel</title>
-	<style type="text/css">
-		a{color: black;}
-		td{text-align: center;}
-	</style>
-</head>
-<body>
-	 <a href="index.php?id=1">导出</a>
-
-
-		
-</body>
-</html>
 <?php 
+    echo 111;
  	date_default_timezone_set('PRC');
    	$data=array();
    	for ($i=1; $i <51 ; $i++) { 
